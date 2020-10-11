@@ -7,9 +7,9 @@ import (
 )
 
 type SimpleLogger struct {
-	W        base.IWriter
-	formater base.IFormat
-	level    int
+	w         base.IWriter
+	formatter base.IFormat
+	level     int
 }
 
 func NewSimpleLogger(path string, level int) (*SimpleLogger, error) {
@@ -19,18 +19,18 @@ func NewSimpleLogger(path string, level int) (*SimpleLogger, error) {
 	}
 
 	return &SimpleLogger{
-		W:        writer.NewAsyncWriter(fw, 1024),
-		formater: format.NewSimpleFormat(),
-		level:    level,
+		w:         writer.NewAsyncWriter(fw, 1024),
+		formatter: format.NewSimpleFormat(),
+		level:     level,
 	}, nil
 }
 
 func (sl *SimpleLogger) SetWriter(w base.IWriter) {
-	sl.W = w
+	sl.w = w
 }
 
 func (sl *SimpleLogger) SetFormat(f base.IFormat) {
-	sl.formater = f
+	sl.formatter = f
 }
 
 func (sl *SimpleLogger) SetLevel(level int) {
@@ -69,12 +69,16 @@ func (sl *SimpleLogger) Debug(msg []byte) {
 	sl.Log(base.LEVEL_DEBUG, msg)
 }
 
+func (sl *SimpleLogger) Free() {
+	sl.w.Free()
+}
+
 func (sl *SimpleLogger) Log(level int, msg []byte) error {
 	if level > sl.level {
 		return nil
 	}
 
-	if _, err := sl.W.Write(sl.formater.Format(level, msg)); err != nil {
+	if _, err := sl.w.Write(sl.formatter.Format(level, msg)); err != nil {
 		return err
 	}
 

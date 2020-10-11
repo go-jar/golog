@@ -26,10 +26,10 @@ func TestSimpleLogger(t *testing.T) {
 		sl.Debug(msg)
 	}
 
-	sl.W.Free()
+	sl.Free()
 
 	sl.SetWriter(writer.NewConsoleWriter())
-	sl.SetFormat(format.NewConsoleFormat(sl.formater))
+	sl.SetFormat(format.NewConsoleFormat(format.NewSimpleFormat()))
 	sl.SetLevel(base.LEVEL_DEBUG)
 
 	for i := 0; i < 10; i++ {

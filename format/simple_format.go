@@ -29,9 +29,9 @@ func (sf *SimpleFormat) Format(level int, msg []byte) []byte {
 	return appendToBuf([]byte("["), logLevel, []byte("]\t["), []byte(time.Now().Format(sf.timePattern)), []byte("]\t"), msg, []byte("\n"))
 }
 
-func appendToBuf(elem []byte, elemsRest ...[]byte) []byte {
+func appendToBuf(elem []byte, elemRest ...[]byte) []byte {
 	buf := bytes.NewBuffer(elem)
-	for _, e := range elemsRest {
+	for _, e := range elemRest {
 		buf.Write(e)
 	}
 

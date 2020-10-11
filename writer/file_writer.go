@@ -53,16 +53,14 @@ func (fw *FileWriter) Write(msg []byte) (int, error) {
 	}
 
 	nextPos := fw.bufPos + msgLen
-	if nextPos < fw.bufSize {
-		copy(fw.buf[fw.bufPos:], msg)
-		fw.bufPos = nextPos
-	} else {
+	if nextPos > fw.bufSize {
 		if err := fw.flushBuf(); err != nil {
 			return 0, err
 		}
-		copy(fw.buf[fw.bufPos:], msg)
-		fw.bufPos = msgLen
 	}
+
+	copy(fw.buf[fw.bufPos:], msg)
+	fw.bufPos = fw.bufPos + msgLen
 
 	return msgLen, nil
 }

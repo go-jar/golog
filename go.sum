@@ -1,4 +1,4 @@
 github.com/go-jar/gocolor v1.0.0 h1:d5Aoo5JKpmg+2dRf2SXAiWHKKYWjqhfr2kwkLJ3ktDU=
 github.com/go-jar/gocolor v1.0.0/go.mod h1:7TdJX8JhGtDdJKXIFGc+5ggxT5AIWMtH/e76iWnEVG4=
-github.com/go-jar/golog v0.0.0-20201011105004-129a0e1403e8 h1:No7oJxwiWLCRkriPgzppwU8CX/iMvZEZRWQLNHmGZx4=
-github.com/go-jar/golog v0.0.0-20201011105004-129a0e1403e8/go.mod h1:t4NdpKDYvAI46UW6wXtHMtiX+1robsDo0mtbpkxh4VQ=
+github.com/go-jar/gocolor v1.0.1 h1:7B3RW5d/yr+i+V0LGhIa1L+eMqFS1LOOeIarqwAcpSU=
+github.com/go-jar/gocolor v1.0.1/go.mod h1:7TdJX8JhGtDdJKXIFGc+5ggxT5AIWMtH/e76iWnEVG4=

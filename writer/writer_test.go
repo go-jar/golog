@@ -17,7 +17,7 @@ func TestConsoleWriter(t *testing.T) {
 }
 
 func TestFileWriter(t *testing.T) {
-	fw, err := NewFileWriter("/tmp/test.log", 10)
+	fw, err := NewFileWriter("/tmp/test.log", 1024)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -30,7 +30,7 @@ func TestFileWriter(t *testing.T) {
 }
 
 func TestAsyncWriter(t *testing.T) {
-	fw, err := NewFileWriter("/tmp/test1.log", 10)
+	fw, err := NewFileWriter("/tmp/test1.log", 1024)
 	if err != nil {
 		fmt.Println(err)
 	}
