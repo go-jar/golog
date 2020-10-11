@@ -69,7 +69,7 @@ func (sl *SimpleLogger) Debug(msg []byte) {
 	sl.Log(base.LEVEL_DEBUG, msg)
 }
 
-func (sl *SimpleLogger) Free() {
+func (sl *SimpleLogger) Close() {
 	sl.w.Free()
 }
 

@@ -33,6 +33,7 @@ type ILogger interface {
 	Notice(msg []byte)
 	Info(msg []byte)
 	Debug(msg []byte)
+	Close()
 }
 
 type IFormat interface {

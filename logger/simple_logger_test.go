@@ -26,7 +26,7 @@ func TestSimpleLogger(t *testing.T) {
 		sl.Debug(msg)
 	}
 
-	sl.Free()
+	sl.Close()
 
 	sl.SetWriter(writer.NewConsoleWriter())
 	sl.SetFormat(format.NewConsoleFormat(format.NewSimpleFormat()))
@@ -42,4 +42,6 @@ func TestSimpleLogger(t *testing.T) {
 		sl.Info(msg)
 		sl.Debug(msg)
 	}
+
+	sl.Close()
 }
