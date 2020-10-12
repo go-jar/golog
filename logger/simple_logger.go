@@ -12,15 +12,44 @@ type SimpleLogger struct {
 	level     int
 }
 
-func NewSimpleLogger(path string, level int) (*SimpleLogger, error) {
-	fw, err := writer.NewFileWriter(path, 1024)
+func NewSimpleLogger(w base.IWriter, level int) (*SimpleLogger, error) {
+	return &SimpleLogger{
+		w:         w,
+		formatter: format.NewSimpleFormat(),
+		level:     level,
+	}, nil
+}
+
+func NewFileLogger(path string, bufSize, level int) (*SimpleLogger, error) {
+	fw, err := writer.NewFileWriter(path, bufSize)
 	if err != nil {
 		return nil, err
 	}
 
 	return &SimpleLogger{
-		w:         writer.NewAsyncWriter(fw, 1024),
+		w:         fw,
 		formatter: format.NewSimpleFormat(),
+		level:     level,
+	}, nil
+}
+
+func NewAsyncLogger(path string, bufSize, queueSize, level int) (*SimpleLogger, error) {
+	fw, err := writer.NewFileWriter(path, bufSize)
+	if err != nil {
+		return nil, err
+	}
+
+	return &SimpleLogger{
+		w:         writer.NewAsyncWriter(fw, queueSize),
+		formatter: format.NewSimpleFormat(),
+		level:     level,
+	}, nil
+}
+
+func NewConsoleLogger(level int) (*SimpleLogger, error) {
+	return &SimpleLogger{
+		w:         writer.NewConsoleWriter(),
+		formatter: format.NewConsoleFormat(format.NewSimpleFormat()),
 		level:     level,
 	}, nil
 }
