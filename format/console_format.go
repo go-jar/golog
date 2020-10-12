@@ -3,7 +3,7 @@ package format
 import (
 	"golog/base"
 
-	"github.com/go-jar/gocolor"
+	"github.com/go-jar/color"
 )
 
 type colorFunc func(msg []byte) []byte
@@ -17,14 +17,14 @@ func NewConsoleFormat(format base.IFormat) *ConsoleFormat {
 	return &ConsoleFormat{
 		formatter: format,
 		colorMsg: map[int]colorFunc{
-			base.LEVEL_DEBUG:     gocolor.RenderMsgYellow,
-			base.LEVEL_INFO:      gocolor.RenderMsgBlue,
-			base.LEVEL_NOTICE:    gocolor.RenderMsgCyan,
-			base.LEVEL_WARN:      gocolor.RenderMsgMaganta,
-			base.LEVEL_ERROR:     gocolor.RenderMsgRed,
-			base.LEVEL_CRITICAL:  gocolor.RenderMsgBlack,
-			base.LEVEL_ALERT:     gocolor.RenderMsgWhite,
-			base.LEVEL_EMERGENCY: gocolor.RenderMsgGreen,
+			base.LEVEL_DEBUG:     color.RenderMsgYellow,
+			base.LEVEL_INFO:      color.RenderMsgBlue,
+			base.LEVEL_NOTICE:    color.RenderMsgCyan,
+			base.LEVEL_WARN:      color.RenderMsgMaganta,
+			base.LEVEL_ERROR:     color.RenderMsgRed,
+			base.LEVEL_CRITICAL:  color.RenderMsgBlack,
+			base.LEVEL_ALERT:     color.RenderMsgWhite,
+			base.LEVEL_EMERGENCY: color.RenderMsgGreen,
 		},
 	}
 }
