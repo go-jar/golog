@@ -55,6 +55,10 @@ func NewConsoleLogger(level int) (*SimpleLogger, error) {
 }
 
 func (sl *SimpleLogger) SetWriter(w base.IWriter) {
+	if sl.w != nil {
+		sl.w.Free()
+	}
+
 	sl.w = w
 }
 
