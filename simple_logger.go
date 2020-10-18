@@ -1,10 +1,5 @@
 package golog
 
-import (
-	"github.com/go-jar/golog/format"
-	"github.com/go-jar/golog/writer"
-)
-
 type SimpleLogger struct {
 	w         IWriter
 	formatter IFormat
@@ -14,41 +9,41 @@ type SimpleLogger struct {
 func NewSimpleLogger(w IWriter, level int) (*SimpleLogger, error) {
 	return &SimpleLogger{
 		w:         w,
-		formatter: format.NewSimpleFormat(),
+		formatter: NewSimpleFormat(),
 		level:     level,
 	}, nil
 }
 
 func NewFileLogger(path string, bufSize, level int) (*SimpleLogger, error) {
-	fw, err := writer.NewFileWriter(path, bufSize)
+	fw, err := NewFileWriter(path, bufSize)
 	if err != nil {
 		return nil, err
 	}
 
 	return &SimpleLogger{
 		w:         fw,
-		formatter: format.NewSimpleFormat(),
+		formatter: NewSimpleFormat(),
 		level:     level,
 	}, nil
 }
 
 func NewAsyncLogger(path string, bufSize, queueSize, level int) (*SimpleLogger, error) {
-	fw, err := writer.NewFileWriter(path, bufSize)
+	fw, err := NewFileWriter(path, bufSize)
 	if err != nil {
 		return nil, err
 	}
 
 	return &SimpleLogger{
-		w:         writer.NewAsyncWriter(fw, queueSize),
-		formatter: format.NewSimpleFormat(),
+		w:         NewAsyncWriter(fw, queueSize),
+		formatter: NewSimpleFormat(),
 		level:     level,
 	}, nil
 }
 
 func NewConsoleLogger(level int) (*SimpleLogger, error) {
 	return &SimpleLogger{
-		w:         writer.NewConsoleWriter(),
-		formatter: format.NewConsoleFormat(format.NewSimpleFormat()),
+		w:         NewConsoleWriter(),
+		formatter: NewConsoleFormat(NewSimpleFormat()),
 		level:     level,
 	}, nil
 }

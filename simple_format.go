@@ -1,4 +1,4 @@
-package format
+package golog
 
 import (
 	"bytes"
