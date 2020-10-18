@@ -1,30 +1,29 @@
 package format
 
 import (
-	"golog/base"
-
 	"github.com/go-jar/color"
+	"github.com/go-jar/golog"
 )
 
 type colorFunc func(msg []byte) []byte
 
 type ConsoleFormat struct {
-	formatter base.IFormat
+	formatter golog.IFormat
 	colorMsg  map[int]colorFunc
 }
 
-func NewConsoleFormat(format base.IFormat) *ConsoleFormat {
+func NewConsoleFormat(format golog.IFormat) *ConsoleFormat {
 	return &ConsoleFormat{
 		formatter: format,
 		colorMsg: map[int]colorFunc{
-			base.LEVEL_DEBUG:     color.RenderMsgYellow,
-			base.LEVEL_INFO:      color.RenderMsgBlue,
-			base.LEVEL_NOTICE:    color.RenderMsgCyan,
-			base.LEVEL_WARN:      color.RenderMsgMaganta,
-			base.LEVEL_ERROR:     color.RenderMsgRed,
-			base.LEVEL_CRITICAL:  color.RenderMsgBlack,
-			base.LEVEL_ALERT:     color.RenderMsgWhite,
-			base.LEVEL_EMERGENCY: color.RenderMsgGreen,
+			golog.LEVEL_DEBUG:     color.RenderMsgYellow,
+			golog.LEVEL_INFO:      color.RenderMsgBlue,
+			golog.LEVEL_NOTICE:    color.RenderMsgCyan,
+			golog.LEVEL_WARN:      color.RenderMsgMaganta,
+			golog.LEVEL_ERROR:     color.RenderMsgRed,
+			golog.LEVEL_CRITICAL:  color.RenderMsgBlack,
+			golog.LEVEL_ALERT:     color.RenderMsgWhite,
+			golog.LEVEL_EMERGENCY: color.RenderMsgGreen,
 		},
 	}
 }

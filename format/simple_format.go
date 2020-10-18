@@ -2,8 +2,9 @@ package format
 
 import (
 	"bytes"
-	"golog/base"
 	"time"
+
+	"github.com/go-jar/golog"
 )
 
 type SimpleFormat struct {
@@ -21,7 +22,7 @@ func (sf *SimpleFormat) SetTimePattern(tp string) {
 }
 
 func (sf *SimpleFormat) Format(level int, msg []byte) []byte {
-	logLevel, ok := base.LogLevel[level]
+	logLevel, ok := golog.LogLevel[level]
 	if !ok {
 		logLevel = []byte("-")
 	}
