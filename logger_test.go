@@ -1,28 +1,26 @@
-package logger
+package golog
 
 import (
 	"fmt"
 	"testing"
-
-	"github.com/go-jar/golog"
 )
 
 func TestSimpleLogger(t *testing.T) {
-	sl, err := NewFileLogger("/data/test.log", 1024, golog.LEVEL_INFO)
+	sl, err := NewFileLogger("/data/test.log", 1024, LEVEL_INFO)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	testLog(sl)
 
-	sl, err = NewAsyncLogger("/data/test1.log", 1024, 1024, golog.LEVEL_ERROR)
+	sl, err = NewAsyncLogger("/data/test1.log", 1024, 1024, LEVEL_ERROR)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	testLog(sl)
 
-	sl, err = NewConsoleLogger(golog.LEVEL_NOTICE)
+	sl, err = NewConsoleLogger(LEVEL_NOTICE)
 	if err != nil {
 		fmt.Println(err)
 	}
