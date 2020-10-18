@@ -1,8 +1,9 @@
 package writer
 
 import (
-	"golog/base"
 	"sync"
+
+	"github.com/go-jar/golog"
 )
 
 const (
@@ -12,7 +13,7 @@ const (
 )
 
 type AsyncWriter struct {
-	w         base.IWriter
+	w         golog.IWriter
 	msgChan   chan *asyncMsg
 	queueSize int
 	wg        *sync.WaitGroup
@@ -23,7 +24,7 @@ type asyncMsg struct {
 	msg  []byte
 }
 
-func NewAsyncWriter(w base.IWriter, queueSize int) *AsyncWriter {
+func NewAsyncWriter(w golog.IWriter, queueSize int) *AsyncWriter {
 	aw := &AsyncWriter{
 		w:         w,
 		msgChan:   make(chan *asyncMsg, queueSize),
