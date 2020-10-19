@@ -1,0 +1,9 @@
+github.com/go-jar/color v1.0.2 h1:ppdTTTFomwVS5j/175qaeYUt32Zp6B+9ISTcpfIN/M0=
+github.com/go-jar/color v1.0.2/go.mod h1:f+yUB1jcM3Y/HJ03dfsI0rYYp2k2tTboMlHsJkBnyxw=
+github.com/go-jar/golog v1.0.3 h1:uF80mzbbPkDrhQl/Rsy7MClZGMrcNNjnkjaB1FePwUg=
+github.com/go-jar/golog v1.0.11 h1:rYQHcG7YfL6P24nOiv12LRf9W41OacxvyRuPCgqhiXM=
+github.com/go-jar/golog v1.0.11/go.mod h1:t4NdpKDYvAI46UW6wXtHMtiX+1robsDo0mtbpkxh4VQ=
+github.com/go-jar/golog v2.0.1+incompatible h1:xpCflf8WrlF5iq9RDAPNgOgYi62m+mtw5IM3sHOsUTk=
+github.com/go-jar/golog v2.0.1+incompatible/go.mod h1:t4NdpKDYvAI46UW6wXtHMtiX+1robsDo0mtbpkxh4VQ=
+github.com/go-jar/golog v2.0.7+incompatible h1:QgCw754QKIwq4ttCQikEOwACXcyMb6oDhsIogCcNefs=
+github.com/go-jar/golog v2.0.7+incompatible/go.mod h1:t4NdpKDYvAI46UW6wXtHMtiX+1robsDo0mtbpkxh4VQ=
