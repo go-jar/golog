@@ -35,7 +35,7 @@ func (n *NoopLogger) Flush() error {
 	return nil
 }
 
-func (n *NoopLogger) Free() {
+func (n *NoopLogger) Close() {
 }
 
 type NoopFormater struct {
