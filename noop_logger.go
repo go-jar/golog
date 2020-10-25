@@ -12,7 +12,7 @@ func (n *NoopLogger) Info(msg []byte) {
 func (n *NoopLogger) Notice(msg []byte) {
 }
 
-func (n *NoopLogger) Warning(msg []byte) {
+func (n *NoopLogger) Warn(msg []byte) {
 }
 
 func (n *NoopLogger) Error(msg []byte) {
