@@ -29,7 +29,7 @@ func (sf *FileInfoFormat) Format(level int, msg []byte) []byte {
 		logLevel = []byte("-")
 	}
 
-	_, fullFileName, line, _ := runtime.Caller(0)
+	_, fullFileName, line, _ := runtime.Caller(3)
 	fileName := path.Base(fullFileName)
 
 	return gomisc.AppendBytes([]byte("["), logLevel, []byte("]\t["),
