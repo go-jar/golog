@@ -22,7 +22,7 @@ func NewFileLogger(path string, bufSize, level int) (*SimpleLogger, error) {
 
 	return &SimpleLogger{
 		w:         fw,
-		formatter: NewSimpleFormat(),
+		formatter: NewFileInfoFormat(),
 		level:     level,
 	}, nil
 }
@@ -35,7 +35,7 @@ func NewAsyncLogger(path string, bufSize, queueSize, level int) (*SimpleLogger, 
 
 	return &SimpleLogger{
 		w:         NewAsyncWriter(fw, queueSize),
-		formatter: NewSimpleFormat(),
+		formatter: NewFileInfoFormat(),
 		level:     level,
 	}, nil
 }
@@ -43,7 +43,7 @@ func NewAsyncLogger(path string, bufSize, queueSize, level int) (*SimpleLogger, 
 func NewConsoleLogger(level int) (*SimpleLogger, error) {
 	return &SimpleLogger{
 		w:         NewConsoleWriter(),
-		formatter: NewConsoleFormat(NewSimpleFormat()),
+		formatter: NewConsoleFormat(NewFileInfoFormat()),
 		level:     level,
 	}, nil
 }
