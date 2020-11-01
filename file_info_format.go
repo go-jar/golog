@@ -11,6 +11,7 @@ import (
 
 type FileInfoFormat struct {
 	timePattern string
+	callLevel   int
 }
 
 func NewFileInfoFormat() *FileInfoFormat {
@@ -19,21 +20,25 @@ func NewFileInfoFormat() *FileInfoFormat {
 	}
 }
 
-func (sf *FileInfoFormat) SetTimePattern(tp string) {
-	sf.timePattern = tp
+func (fif *FileInfoFormat) SetCallLevel(callLevel int) {
+	fif.callLevel = callLevel
 }
 
-func (sf *FileInfoFormat) Format(level int, msg []byte) []byte {
+func (fif *FileInfoFormat) SetTimePattern(tp string) {
+	fif.timePattern = tp
+}
+
+func (fif *FileInfoFormat) Format(level int, msg []byte) []byte {
 	logLevel, ok := LogLevel[level]
 	if !ok {
 		logLevel = []byte("-")
 	}
 
-	_, fullFileName, line, _ := runtime.Caller(3)
+	_, fullFileName, line, _ := runtime.Caller(3 + fif.callLevel)
 	fileName := path.Base(fullFileName)
 
 	return gomisc.AppendBytes([]byte("["), logLevel, []byte("]\t["),
-		[]byte(time.Now().Format(sf.timePattern)), []byte("]\t["),
+		[]byte(time.Now().Format(fif.timePattern)), []byte("]\t["),
 		[]byte(fileName), []byte(": "), []byte(strconv.Itoa(line)), []byte("] "),
 		msg, []byte("\n"))
 }
