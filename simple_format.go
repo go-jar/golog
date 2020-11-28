@@ -1,8 +1,9 @@
 package golog
 
 import (
-	"bytes"
 	"time"
+
+	"github.com/goinbox/gomisc"
 )
 
 type SimpleFormat struct {
@@ -25,14 +26,6 @@ func (sf *SimpleFormat) Format(level int, msg []byte) []byte {
 		logLevel = []byte("-")
 	}
 
-	return appendToBuf([]byte("["), logLevel, []byte("]\t["), []byte(time.Now().Format(sf.timePattern)), []byte("]\t"), msg, []byte("\n"))
-}
-
-func appendToBuf(elem []byte, elemRest ...[]byte) []byte {
-	buf := bytes.NewBuffer(elem)
-	for _, e := range elemRest {
-		buf.Write(e)
-	}
-
-	return buf.Bytes()
+	return gomisc.AppendBytes([]byte("["), logLevel, []byte("]\t["),
+		[]byte(time.Now().Format(sf.timePattern)), []byte("]\t"), msg, []byte("\n"))
 }

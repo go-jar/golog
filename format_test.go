@@ -10,7 +10,7 @@ func TestConsoleFormat(t *testing.T) {
 	cf := NewConsoleFormat(sf)
 	fmt.Println(string(cf.Format(LEVEL_INFO, []byte("Hello, World!"))))
 
-	fif := NewFileInfoFormat()
+	fif := NewFileInfoFormat(0)
 	cf = NewConsoleFormat(fif)
 	fmt.Println(string(cf.Format(LEVEL_DEBUG, []byte("Hello, World!"))))
 }

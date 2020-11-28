@@ -6,11 +6,11 @@ type SimpleLogger struct {
 	level     int
 }
 
-func NewSimpleLogger(w IWriter, level int) (*SimpleLogger, error) {
+func NewSimpleLogger(w IWriter, f IFormat) (*SimpleLogger, error) {
 	return &SimpleLogger{
 		w:         w,
-		formatter: NewSimpleFormat(),
-		level:     level,
+		formatter: f,
+		level:     LEVEL_INFO,
 	}, nil
 }
 
@@ -22,7 +22,7 @@ func NewFileLogger(path string, bufSize, level int) (*SimpleLogger, error) {
 
 	return &SimpleLogger{
 		w:         fw,
-		formatter: NewFileInfoFormat(),
+		formatter: NewSimpleFormat(),
 		level:     level,
 	}, nil
 }
@@ -35,7 +35,7 @@ func NewAsyncLogger(path string, bufSize, queueSize, level int) (*SimpleLogger, 
 
 	return &SimpleLogger{
 		w:         NewAsyncWriter(fw, queueSize),
-		formatter: NewFileInfoFormat(),
+		formatter: NewSimpleFormat(),
 		level:     level,
 	}, nil
 }
@@ -43,7 +43,7 @@ func NewAsyncLogger(path string, bufSize, queueSize, level int) (*SimpleLogger, 
 func NewConsoleLogger(level int) (*SimpleLogger, error) {
 	return &SimpleLogger{
 		w:         NewConsoleWriter(),
-		formatter: NewConsoleFormat(NewFileInfoFormat()),
+		formatter: NewConsoleFormat(NewSimpleFormat()),
 		level:     level,
 	}, nil
 }

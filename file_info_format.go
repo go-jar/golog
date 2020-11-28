@@ -14,9 +14,10 @@ type FileInfoFormat struct {
 	callLevel   int
 }
 
-func NewFileInfoFormat() *FileInfoFormat {
+func NewFileInfoFormat(callLevel int) *FileInfoFormat {
 	return &FileInfoFormat{
 		timePattern: "2006-01-02 15:04:05",
+		callLevel:   callLevel,
 	}
 }
 
