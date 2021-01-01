@@ -48,20 +48,23 @@ func NewConsoleLogger(level int) (*SimpleLogger, error) {
 	}, nil
 }
 
-func (sl *SimpleLogger) SetWriter(w IWriter) {
+func (sl *SimpleLogger) SetWriter(w IWriter) *SimpleLogger {
 	if sl.w != nil {
 		sl.w.Free()
 	}
 
 	sl.w = w
+	return sl
 }
 
-func (sl *SimpleLogger) SetFormat(f IFormat) {
+func (sl *SimpleLogger) SetFormat(f IFormat) *SimpleLogger {
 	sl.formatter = f
+	return sl
 }
 
-func (sl *SimpleLogger) SetLevel(level int) {
+func (sl *SimpleLogger) SetLevel(level int) *SimpleLogger {
 	sl.level = level
+	return sl
 }
 
 func (sl *SimpleLogger) Emergency(msg []byte) {
