@@ -6,12 +6,12 @@ type SimpleLogger struct {
 	level     int
 }
 
-func NewSimpleLogger(w IWriter, f IFormat) (*SimpleLogger, error) {
+func NewSimpleLogger(w IWriter, f IFormat) *SimpleLogger {
 	return &SimpleLogger{
 		w:         w,
 		formatter: f,
 		level:     LevelInfo,
-	}, nil
+	}
 }
 
 func NewFileLogger(path string, bufSize, level int) (*SimpleLogger, error) {
