@@ -8,9 +8,9 @@ import (
 func TestConsoleFormat(t *testing.T) {
 	sf := NewSimpleFormat()
 	cf := NewConsoleFormat(sf)
-	fmt.Println(string(cf.Format(LEVEL_INFO, []byte("Hello, World!"))))
+	fmt.Println(string(cf.Format(LevelInfo, []byte("Hello, World!"))))
 
 	fif := NewFileInfoFormat(0)
 	cf = NewConsoleFormat(fif)
-	fmt.Println(string(cf.Format(LEVEL_DEBUG, []byte("Hello, World!"))))
+	fmt.Println(string(cf.Format(LevelDebug, []byte("Hello, World!"))))
 }

@@ -6,21 +6,21 @@ import (
 )
 
 func TestSimpleLogger(t *testing.T) {
-	sl, err := NewFileLogger("/data/test.log", 1024, LEVEL_INFO)
+	sl, err := NewFileLogger("/data/test.log", 1024, LevelInfo)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	testLog(sl)
 
-	sl, err = NewAsyncLogger("/data/test1.log", 1024, 1024, LEVEL_ERROR)
+	sl, err = NewAsyncLogger("/data/test1.log", 1024, 1024, LevelError)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	testLog(sl)
 
-	sl, err = NewConsoleLogger(LEVEL_NOTICE)
+	sl, err = NewConsoleLogger(LevelNotice)
 	if err != nil {
 		fmt.Println(err)
 	}

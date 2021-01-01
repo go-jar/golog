@@ -3,25 +3,25 @@ package golog
 import "io"
 
 const (
-	LEVEL_EMERGENCY = 0
-	LEVEL_ALERT     = 1
-	LEVEL_CRITICAL  = 2
-	LEVEL_ERROR     = 3
-	LEVEL_WARN      = 4
-	LEVEL_NOTICE    = 5
-	LEVEL_INFO      = 6
-	LEVEL_DEBUG     = 7
+	LevelEmergency = 0
+	LevelAlert     = 1
+	LevelCritical  = 2
+	LevelError     = 3
+	LevelWarn      = 4
+	LevelNotice    = 5
+	LevelInfo      = 6
+	LevelDebug     = 7
 )
 
 var LogLevel map[int][]byte = map[int][]byte{
-	LEVEL_EMERGENCY: []byte("Emerg"),
-	LEVEL_ALERT:     []byte("Alert"),
-	LEVEL_CRITICAL:  []byte("Crit"),
-	LEVEL_ERROR:     []byte("Error"),
-	LEVEL_WARN:      []byte("Warn"),
-	LEVEL_NOTICE:    []byte("Noti"),
-	LEVEL_INFO:      []byte("Info"),
-	LEVEL_DEBUG:     []byte("Debug"),
+	LevelEmergency: []byte("Emerg"),
+	LevelAlert:     []byte("Alert"),
+	LevelCritical:  []byte("Crit"),
+	LevelError:     []byte("Error"),
+	LevelWarn:      []byte("Warn"),
+	LevelNotice:    []byte("Noti"),
+	LevelInfo:      []byte("Info"),
+	LevelDebug:     []byte("Debug"),
 }
 
 type ILogger interface {

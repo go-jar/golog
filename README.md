@@ -9,5 +9,5 @@
     - ConsoleFormat 采用装饰者模式，在 SimpleFormat 基础上附加了打印颜色样式。
 
 # 参考
-- https://github.com/goinbox/golog
-- https://www.jianshu.com/p/20d0f74c3c08
+https://github.com/goinbox/golog
+https://www.jianshu.com/p/20d0f74c3c08

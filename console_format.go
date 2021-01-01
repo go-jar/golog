@@ -15,14 +15,14 @@ func NewConsoleFormat(format IFormat) *ConsoleFormat {
 	return &ConsoleFormat{
 		formatter: format,
 		colorMsg: map[int]colorFunc{
-			LEVEL_DEBUG:     color.RenderMsgYellow,
-			LEVEL_INFO:      color.RenderMsgBlue,
-			LEVEL_NOTICE:    color.RenderMsgCyan,
-			LEVEL_WARN:      color.RenderMsgMaganta,
-			LEVEL_ERROR:     color.RenderMsgRed,
-			LEVEL_CRITICAL:  color.RenderMsgBlack,
-			LEVEL_ALERT:     color.RenderMsgWhite,
-			LEVEL_EMERGENCY: color.RenderMsgGreen,
+			LevelDebug:     color.RenderMsgYellow,
+			LevelInfo:      color.RenderMsgBlue,
+			LevelNotice:    color.RenderMsgCyan,
+			LevelWarn:      color.RenderMsgMaganta,
+			LevelError:     color.RenderMsgRed,
+			LevelCritical:  color.RenderMsgBlack,
+			LevelAlert:     color.RenderMsgWhite,
+			LevelEmergency: color.RenderMsgGreen,
 		},
 	}
 }

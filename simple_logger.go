@@ -10,7 +10,7 @@ func NewSimpleLogger(w IWriter, f IFormat) (*SimpleLogger, error) {
 	return &SimpleLogger{
 		w:         w,
 		formatter: f,
-		level:     LEVEL_INFO,
+		level:     LevelInfo,
 	}, nil
 }
 
@@ -65,35 +65,35 @@ func (sl *SimpleLogger) SetLevel(level int) {
 }
 
 func (sl *SimpleLogger) Emergency(msg []byte) {
-	sl.Log(LEVEL_EMERGENCY, msg)
+	sl.Log(LevelEmergency, msg)
 }
 
 func (sl *SimpleLogger) Alert(msg []byte) {
-	sl.Log(LEVEL_ALERT, msg)
+	sl.Log(LevelAlert, msg)
 }
 
 func (sl *SimpleLogger) Critical(msg []byte) {
-	sl.Log(LEVEL_CRITICAL, msg)
+	sl.Log(LevelCritical, msg)
 }
 
 func (sl *SimpleLogger) Error(msg []byte) {
-	sl.Log(LEVEL_ERROR, msg)
+	sl.Log(LevelError, msg)
 }
 
 func (sl *SimpleLogger) Warn(msg []byte) {
-	sl.Log(LEVEL_WARN, msg)
+	sl.Log(LevelWarn, msg)
 }
 
 func (sl *SimpleLogger) Notice(msg []byte) {
-	sl.Log(LEVEL_NOTICE, msg)
+	sl.Log(LevelNotice, msg)
 }
 
 func (sl *SimpleLogger) Info(msg []byte) {
-	sl.Log(LEVEL_INFO, msg)
+	sl.Log(LevelInfo, msg)
 }
 
 func (sl *SimpleLogger) Debug(msg []byte) {
-	sl.Log(LEVEL_DEBUG, msg)
+	sl.Log(LevelDebug, msg)
 }
 
 func (sl *SimpleLogger) Close() {
